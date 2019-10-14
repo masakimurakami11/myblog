@@ -1,0 +1,21 @@
+<div class = "blog_format"> 
+  <div class = post_text>
+    <div class = "post_name">
+      <%= blog.user.nickname %>
+    </div>
+    <%= simple_format(blog.text) %>
+    <% if user_signed_in? && current_user.id == blog.user_id%>
+      <div class="more">
+        <div class="more_list">
+          <div class = "button blog_edit">
+            <%= link_to 'Edit',"/blogs/#{blog.id}/edit", method: :get %>
+          </div>
+          <div class = "button blog_delete">
+            <%= link_to 'Delete', "/blogs/#{blog.id}", method: :delete %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,11 @@
+<div class="contents_1" >
+  <div class = "contents_title">
+  <p class = "title">
+  Blogs
+  </p>
+  <%= paginate(@blog) %>
+  </div>
+  <% @blog.each do |blog| %>
+    <%= render partial: "blog", locals: { blog: blog } %>
+  <% end %>
+</div>

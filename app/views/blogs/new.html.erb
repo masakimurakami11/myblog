@@ -1,0 +1,12 @@
+<div class = "contents_post">
+    <%= form_with(model: @blog, url:"/blogs" ,local: true) do |form| %>
+      <div>
+        <%= form.text_field :text, placeholder: '本文', style: 'width: 40%;height: 150px;'%>
+      </div>
+      <div>
+        <%= button_tag type: "submit", class: "button button-block" do %>
+        投稿する<i class = "icon-arrow-right"></i>
+        <% end %>
+      </div>
+    <% end %>
+</div>

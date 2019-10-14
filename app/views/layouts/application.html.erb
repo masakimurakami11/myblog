@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myblog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel = "stylesheet" href = "normalize.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class = "header">
+      <div class = "blank">
+        <% if user_signed_in? %>
+        <div class = "button log_out">
+          <%= link_to "Log-Out", destroy_user_session_path, method: :delete %>
+        </div>
+      <% end %>
+      </div>
+      <h1 class= "header1"><a href="/">My BLOG</a></h1>
+      <div class = "buttons">
+      <% if user_signed_in? %>
+        <a class = "button my_page" href = "/users/<%= current_user.id %>">
+          My-Page
+        </a>
+        <a class = "button post_in" href = "/blogs/new">
+          Post
+        </a>
+      <% else %>
+        <a class = "button new" href = "/users/sign_up">
+          Sign-Up
+        </a>
+        <a class = "button log_in" href = "/users/sign_in">
+          Log-In
+        </a>
+      <% end %>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>
